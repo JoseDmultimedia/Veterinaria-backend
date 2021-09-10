@@ -25,8 +25,20 @@ app.use(cors());
 
 
 //Routes
+    //Controllers se traen aqui por cuestion de tiempo para ver la generacion de las rutas para los servicios
+        const usuarioControl = require("./controllers/usuarioController.js");
+        const mascotaControl = require("./controllers/mascotaController.js");
+        const colaboradorControl = require("./controllers/colaboradorController.js");
+        const historiaControl = require("./controllers/historiaClinicaController.js");
+        const detallesControl = require("./controllers/detallesHistoriaController");
+
 
 app.use(require('./routes/veterinaria.js'));
+app.get("/usuarios", usuarioControl.all);
+app.get("/mascota", mascotaControl.all);
+app.get("/colaborador", colaboradorControl.all);
+app.get("/historia", historiaControl.all);
+app.get("/detalles", detallesControl.all);
 
 
 //Start server
